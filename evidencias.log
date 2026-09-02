@@ -159,3 +159,47 @@ openmp 0.000008
 [?2004lexit
 
 Script done on 2026-09-02 10:14:21-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-02 11:33:01-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="149" LINES="8"]
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mdate[27mdate
+[?2004lWed Sep  2 11:33:05 -03 2026
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mwhoami[27mwhoami
+[?2004ldavia
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mpwd[27mpwd
+[?2004l/mnt/c/Users/davia/Desktop/implementacao2
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mmake clean[27mmake clean
+[?2004lrm -f mandelbrot mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm times.txt
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mmake[27mmake
+[?2004lgcc -Wall -Wextra -g mandelbrot.c -o mandelbrot
+[01m[Kmandelbrot.c:[m[K In function ‘[01m[Kcalcular_imagem_openmp[m[K’:
+[01m[Kmandelbrot.c:46:[m[K [01;35m[Kwarning: [m[Kignoring ‘[01m[K#pragma omp parallel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunknown-pragmas-Wunknown-pragmas]8;;[m[K]
+   46 | #pragma omp parallel for private(x)
+      | 
+/usr/bin/ld: /tmp/cca3HLP3.o: in function `calcular_imagem_openmp':
+/mnt/c/Users/davia/Desktop/implementacao2/mandelbrot.c:44:(.text+0x206): undefined reference to `omp_set_num_threads'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:7: mandelbrot] Error 1
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-02 11:33:42-03:00 [COMMAND_EXIT_CODE="2"]
+Script started on 2026-09-02 11:34:41-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="149" LINES="8"]
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mdate[27mdate
+[?2004lWed Sep  2 11:34:46 -03 2026
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mwhoami[27mwhoami
+[?2004ldavia
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ pwd
+[?2004l/mnt/c/Users/davia/Desktop/implementacao2
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make clean
+[?2004lrm -f mandelbrot mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm times.txt
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make
+[?2004lgcc -Wall -Wextra -g -fopenmp mandelbrot.c -o mandelbrot
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make test
+[?2004l./mandelbrot 120 80 100 4
+diff mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ cat times.txt
+[?2004lserial 0.001562
+openmp 0.001600
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-02 11:35:32-03:00 [COMMAND_EXIT_CODE="0"]

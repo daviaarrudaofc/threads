@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <omp.h>
 
 int calcular_ponto(double c_real, double c_imag, int max_iteracoes) {
     double z_real = 0.0;
@@ -26,6 +27,23 @@ void calcular_imagem(int *imagem, int largura, int altura, int max_iteracoes) {
     int x;
     int y;
 
+    for (y = 0; y < altura; y++) {
+        for (x = 0; x < largura; x++) {
+            double real = -2.0 + (3.0 * x) / (largura - 1);
+            double imag = -1.5 + (3.0 * y) / (altura - 1);
+
+            imagem[y * largura + x] = calcular_ponto(real, imag, max_iteracoes);
+        }
+    }
+}
+
+void calcular_imagem_openmp(int *imagem, int largura, int altura, int max_iteracoes, int num_threads) {
+    int x;
+    int y;
+
+    omp_set_num_threads(num_threads);
+
+#pragma omp parallel for private(x)
     for (y = 0; y < altura; y++) {
         for (x = 0; x < largura; x++) {
             double real = -2.0 + (3.0 * x) / (largura - 1);
@@ -106,7 +124,7 @@ int main(int argc, char *argv[]) {
     }
 
     inicio = clock();
-    calcular_imagem(imagem, largura, altura, max_iteracoes);
+    calcular_imagem_openmp(imagem, largura, altura, max_iteracoes, num_threads);
     fim = clock();
     tempo_openmp = (double)(fim - inicio) / CLOCKS_PER_SEC;
 
