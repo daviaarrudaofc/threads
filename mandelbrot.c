@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <omp.h>
+#include <pthread.h>
+
+typedef struct {
+    int *imagem;
+    int largura;
+    int altura;
+    int max_iteracoes;
+    int linha_inicio;
+    int linha_fim;
+} DadosThread;
 
 int converter_numero(char texto[]) {
     int i;
@@ -69,6 +79,74 @@ void calcular_imagem_openmp(int *imagem, int largura, int altura, int max_iterac
     }
 }
 
+void *calcular_parte_pthreads(void *arg) {
+    DadosThread *dados = (DadosThread *)arg;
+    int x;
+    int y;
+
+    for (y = dados->linha_inicio; y < dados->linha_fim; y++) {
+        for (x = 0; x < dados->largura; x++) {
+            double real = -2.0 + (3.0 * x) / (dados->largura - 1);
+            double imag = -1.5 + (3.0 * y) / (dados->altura - 1);
+
+            dados->imagem[y * dados->largura + x] = calcular_ponto(real, imag, dados->max_iteracoes);
+        }
+    }
+
+    return NULL;
+}
+
+int calcular_imagem_pthreads1(int *imagem, int largura, int altura, int max_iteracoes, int num_threads) {
+    pthread_t *threads;
+    DadosThread *dados;
+    int i;
+    int linhas_por_thread;
+    int linha_atual = 0;
+
+    threads = malloc(num_threads * sizeof(pthread_t));
+    dados = malloc(num_threads * sizeof(DadosThread));
+
+    if (threads == NULL || dados == NULL) {
+        fprintf(stderr, "Erro ao alocar memoria para threads.\n");
+        free(threads);
+        free(dados);
+        return 0;
+    }
+
+    linhas_por_thread = altura / num_threads;
+
+    for (i = 0; i < num_threads; i++) {
+        dados[i].imagem = imagem;
+        dados[i].largura = largura;
+        dados[i].altura = altura;
+        dados[i].max_iteracoes = max_iteracoes;
+        dados[i].linha_inicio = linha_atual;
+
+        if (i == num_threads - 1) {
+            dados[i].linha_fim = altura;
+        } else {
+            dados[i].linha_fim = linha_atual + linhas_por_thread;
+        }
+
+        linha_atual = dados[i].linha_fim;
+
+        if (pthread_create(&threads[i], NULL, calcular_parte_pthreads, &dados[i]) != 0) {
+            fprintf(stderr, "Erro ao criar thread.\n");
+            free(threads);
+            free(dados);
+            return 0;
+        }
+    }
+
+    for (i = 0; i < num_threads; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+    free(threads);
+    free(dados);
+    return 1;
+}
+
 int salvar_imagem(char nome_arquivo[], int *imagem, int largura, int altura) {
     FILE *arquivo;
     int x;
@@ -106,6 +184,7 @@ int main(int argc, char *argv[]) {
     clock_t fim;
     double tempo_serial;
     double tempo_openmp;
+    double tempo_pthreads1;
 
     if (argc != 5) {
         fprintf(stderr, "Uso: ./mandelbrot largura altura max_iteracoes num_threads\n");
@@ -148,6 +227,19 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    inicio = clock();
+    if (!calcular_imagem_pthreads1(imagem, largura, altura, max_iteracoes, num_threads)) {
+        free(imagem);
+        return 1;
+    }
+    fim = clock();
+    tempo_pthreads1 = (double)(fim - inicio) / CLOCKS_PER_SEC;
+
+    if (!salvar_imagem("mandelbrot_davia_pthreads1.pgm", imagem, largura, altura)) {
+        free(imagem);
+        return 1;
+    }
+
     tempos = fopen("times.txt", "w");
     if (tempos == NULL) {
         fprintf(stderr, "Erro ao criar times.txt.\n");
@@ -157,6 +249,7 @@ int main(int argc, char *argv[]) {
 
     fprintf(tempos, "serial %.6f\n", tempo_serial);
     fprintf(tempos, "openmp %.6f\n", tempo_openmp);
+    fprintf(tempos, "pthreads1 %.6f\n", tempo_pthreads1);
     fclose(tempos);
 
     free(imagem);
