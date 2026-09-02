@@ -3,6 +3,21 @@
 #include <time.h>
 #include <omp.h>
 
+int converter_numero(char texto[]) {
+    int i;
+    int numero = 0;
+
+    for (i = 0; texto[i] != '\0'; i++) {
+        if (texto[i] < '0' || texto[i] > '9') {
+            return -1;
+        }
+
+        numero = numero * 10 + (texto[i] - '0');
+    }
+
+    return numero;
+}
+
 int calcular_ponto(double c_real, double c_imag, int max_iteracoes) {
     double z_real = 0.0;
     double z_imag = 0.0;
@@ -97,10 +112,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    largura = atoi(argv[1]);
-    altura = atoi(argv[2]);
-    max_iteracoes = atoi(argv[3]);
-    num_threads = atoi(argv[4]);
+    largura = converter_numero(argv[1]);
+    altura = converter_numero(argv[2]);
+    max_iteracoes = converter_numero(argv[3]);
+    num_threads = converter_numero(argv[4]);
 
     if (largura < 2 || altura < 2 || max_iteracoes <= 0 || num_threads <= 0) {
         fprintf(stderr, "Erro: todos os parametros devem ser validos.\n");

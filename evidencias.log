@@ -203,3 +203,91 @@ openmp 0.001600
 [?2004lexit
 
 Script done on 2026-09-02 11:35:32-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-02 14:37:51-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="149" LINES="8"]
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ date
+[?2004lWed Sep  2 14:37:54 -03 2026
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ wg[Khoami
+[?2004ldavia
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ pwd
+[?2004l/mnt/c/Users/davia/Desktop/implementacao2
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make clean
+[?2004lrm -f mandelbrot mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm times.txt
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make
+[?2004lgcc -Wall -Wextra -g -fopenmp mandelbrot.c -o mandelbrot
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make test
+[?2004l./mandelbrot 120 80 100 4
+diff mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7m./mandelbrot abc 80 100 4[27m./mandelbrot abc 80 100 4
+[?2004lErro: todos os parametros devem ser validos.
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7m./mandelbrot -10 80 100 4[27m./mandelbrot -10 80 100 4
+[?2004lErro: todos os parametros devem ser validos.
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7m./mandelbrot 120abc 80 100 4[27m./mandelbrot 120abc 80 100 4
+[?2004l[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mgrep -n "converter_numero\|atoi" mandelbrot.c[27mgrep -n "converter_numero\|atoi" mandelbrot.c
+[?2004l[32m[K6[m[K[36m[K:[m[Kint [01;31m[Kconverter_numero[m[K(char texto[]) {
+[32m[K11[m[K[36m[K:[m[K    return [01;31m[Katoi[m[K(texto);
+[32m[K108[m[K[36m[K:[m[K    largura = [01;31m[Kconverter_numero[m[K(argv[1]);
+[32m[K109[m[K[36m[K:[m[K    altura = [01;31m[Kconverter_numero[m[K(argv[2]);
+[32m[K110[m[K[36m[K:[m[K    max_iteracoes = [01;31m[Kconverter_numero[m[K(argv[3]);
+[32m[K111[m[K[36m[K:[m[K    num_threads = [01;31m[Kconverter_numero[m[K(argv[4]);
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-02 14:38:56-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-02 15:07:36-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="149" LINES="8"]
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ date
+[?2004lWed Sep  2 15:07:40 -03 2026
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ whoami
+[?2004ldavia
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ pwd
+[?2004l/mnt/c/Users/davia/Desktop/implementacao2
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make clean
+[?2004lrm -f mandelbrot mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm times.txt
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make
+[?2004lgcc -Wall -Wextra -g -fopenmp mandelbrot.c -o mandelbrot
+make [?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make test
+[?2004l./mandelbrot 120 80 100 4
+diff mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7m./mandelbrot abc 80 100 4[27m./mandelbrot abc 80 100 4
+[?2004lErro: todos os parametros devem ser validos.
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7m./mandelbrot -10 80 100 4[27m./mandelbrot -10 80 100 4
+[?2004lErro: todos os parametros devem ser validos.
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7m./mandelbrot 120abc 80 100 4[27m./mandelbrot 120abc 80 100 4
+[?2004lErro: todos os parametros devem ser validos.
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mgrep -n "converter_numero\|atoi" mandelbrot.c[27mgrep -n "converter_numero\|atoi" mandelbrot.c
+[?2004l[32m[K6[m[K[36m[K:[m[Kint [01;31m[Kconverter_numero[m[K(char texto[]) {
+[32m[K15[m[K[36m[K:[m[K    return [01;31m[Katoi[m[K(texto);
+[32m[K112[m[K[36m[K:[m[K    largura = [01;31m[Kconverter_numero[m[K(argv[1]);
+[32m[K113[m[K[36m[K:[m[K    altura = [01;31m[Kconverter_numero[m[K(argv[2]);
+[32m[K114[m[K[36m[K:[m[K    max_iteracoes = [01;31m[Kconverter_numero[m[K(argv[3]);
+[32m[K115[m[K[36m[K:[m[K    num_threads = [01;31m[Kconverter_numero[m[K(argv[4]);
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-02 15:08:44-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-02 15:18:47-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="149" LINES="8"]
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ exitgrep -n "converter_numero\|atoi" mandelbrot.c[17P./mandelbrot 120abc 80 100 4[3P-10[C[C[C[C[C[C[C[C[Cabc[C[C[C[C[C[C[C[C[C[16Pmake test[K cleanpwd[Kwhoami[2Pdate
+[?2004lWed Sep  2 15:18:54 -03 2026
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ dateexitdate[Kdateexitgrep -n "converter_numero\|atoi" mandelbrot.c[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kwhoami
+[?2004ldavia
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ pwd
+[?2004l/mnt/c/Users/davia/Desktop/implementacao2
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make clean
+[?2004lrm -f mandelbrot mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm times.txt
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make
+[?2004lgcc -Wall -Wextra -g -fopenmp mandelbrot.c -o mandelbrot
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ make test
+[?2004l./mandelbrot 120 80 100 4
+diff mandelbrot_davia_serial.pgm mandelbrot_davia_openmp.pgm
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7m./mandelbrot 120abc 80 100 4[27m./mandelbrot 120abc 80 100 4
+[?2004lErro: todos os parametros devem ser validos.
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mgrep -n "atoi" mandelbrot.c[27mgrep -n "atoi" mandelbrot.c
+[?2004l[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ [7mgrep -n "converter_numero" mandelbrot.c[27mgrep -n "converter_numero" mandelbrot.c
+[?2004l[32m[K6[m[K[36m[K:[m[Kint [01;31m[Kconverter_numero[m[K(char texto[]) {
+[32m[K115[m[K[36m[K:[m[K    largura = [01;31m[Kconverter_numero[m[K(argv[1]);
+[32m[K116[m[K[36m[K:[m[K    altura = [01;31m[Kconverter_numero[m[K(argv[2]);
+[32m[K117[m[K[36m[K:[m[K    max_iteracoes = [01;31m[Kconverter_numero[m[K(argv[3]);
+[32m[K118[m[K[36m[K:[m[K    num_threads = [01;31m[Kconverter_numero[m[K(argv[4]);
+[?2004h]0;davia@DELLDAVIARRUDA: /mnt/c/Users/davia/Desktop/implementacao2[01;32mdavia@DELLDAVIARRUDA[00m:[01;34m/mnt/c/Users/davia/Desktop/implementacao2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-02 15:19:39-03:00 [COMMAND_EXIT_CODE="0"]
